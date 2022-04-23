@@ -200,14 +200,24 @@
 } */
 
 .abha-table thead th {
-    background-color: #26890d;
-    background-color:#435ba1;
+    /* background-color: #26890d; */
+    /* background-color:#435ba1; */
     border: 1px solid #ffffff;
     font-weight: normal;
     text-align: center;
     color: white;
     font-weight: bold;
 }
+
+
+.abha-table thead tr th:nth-child(odd)  {
+      
+      background-color: #435ba1!important;
+   }
+   .abha-table thead tr th:nth-child(even)  {
+      
+      background-color: #2c3d72!important;
+   }
 
 .abha-table tbody td {
     border-left: 1px solid #435ba1;
@@ -250,6 +260,14 @@
   .mt-50{
       margin-top: -50px;
   }
+
+  .abha-table tr td:first-child:nth-child(2)  {
+      color: #084298;
+      background-color: #cfe2ff!important;
+   }
+
+  
+
       </style>
    </head>
    <body>
@@ -331,7 +349,7 @@
              <div class="row">
                  
                    <div class="table-responsive  abha-table">
-                        <table class="table ">
+                        <table  class="table ">
                             <caption>ABHA ID linked details</caption>
                                 <thead>
                                     <tr>
@@ -342,7 +360,7 @@
                                         <th>Linked with RCH ID</th>
                                     </tr>                                    
                                 </thead>
-                                <tbody>
+                                <tbody id="id2">
                                     <tr>
                                         <td>jammu kashmir</td>
                                         <td>21-04-2022</td>
@@ -428,4 +446,5 @@
         <script src="JSCRIPTS/jquery/jquery.min.js"></script> 
         <script src="Bootstrap5v/js/bootstrap.js"></script>
         <script src="JSCRIPTS/jquery/jquery.sweet-dropdown.min.js"></script>
+        
      </html>
