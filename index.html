@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <title>
+         -::-Reproductive Child Health (Rch) :: Govt. Of India
+      </title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link href="App_Themes/Layout/css/style.css" rel="stylesheet" type="text/css" />
+      <link href="App_Themes/Layout/css/bootstrap.css" rel="stylesheet" />
+      <link href="App_Themes/Layout/css/font-awesome.min.css" rel="stylesheet" />
+      <style type="text/css">
+         .dropdown-menu.dropdown-opened
+         {
+         opacity: 1;
+         -webkit-transform: none !important;
+         transform: none !important;
+         }
+         .dropdown-menu.fixed
+         {
+         position: fixed;
+         }
+         .dropdown-menu.dropdown-anchor-left-top, .dropdown-menu.dropdown-anchor-left-center, .dropdown-menu.dropdown-anchor-left-bottom
+         {
+         -webkit-transform: translateX(-20px) scale(0.93);
+         transform: translateX(-20px) scale(0.93);
+         }
+         .dropdown-menu .dropdown-anchor
+         {
+         border: 7px solid #fff;
+         }
+         .dropdown-menu .dropdown-anchor, .dropdown-menu .dropdown-anchor::after
+         {
+         position: absolute;
+         content: '';
+         display: inline-block;
+         }
+         .dropdown-menu .dropdown-anchor::after
+         {
+         border: 6px solid #fff;
+         }
+         .dropdown-menu.dark .dropdown-anchor, .dropdown-menu.dark .dropdown-anchor::after
+         {
+         border-color: #32363F;
+         }
+         .dropdown-menu.grey-anchor .dropdown-anchor, .dropdown-menu.grey-anchor .dropdown-anchor::after
+         {
+         border-color: #f6f6f6;
+         }
+         .dropdown-menu.accent-anchor .dropdown-anchor, .dropdown-menu.accent-anchor .dropdown-anchor::after
+         {
+         border-color: #F57C00;
+         }
+         .dropdown-menu.dropdown-anchor-top-left:not(.dropdown-overlay-trigger), .dropdown-menu.dropdown-anchor-top-center:not(.dropdown-overlay-trigger), .dropdown-menu.dropdown-anchor-top-right:not(.dropdown-overlay-trigger)
+         {
+         margin-top: 6px;
+         }
+         .dropdown-menu.dropdown-anchor-top-left .dropdown-anchor, .dropdown-menu.dropdown-anchor-top-center .dropdown-anchor, .dropdown-menu.dropdown-anchor-top-right .dropdown-anchor
+         {
+         border-top-color: transparent;
+         border-right-color: transparent;
+         border-left-color: transparent;
+         top: -14px;
+         }
+         .dropdown-menu.dropdown-anchor-top-left .dropdown-anchor::after, .dropdown-menu.dropdown-anchor-top-center .dropdown-anchor::after, .dropdown-menu.dropdown-anchor-top-right .dropdown-anchor::after
+         {
+         border-top-color: transparent;
+         border-right-color: transparent;
+         border-left-color: transparent;
+         margin-top: -5px;
+         margin-left: -6px;
+         }
+         .dropdown-menu.dropdown-anchor-top-left.dropdown-anchor-top-left .dropdown-anchor, .dropdown-menu.dropdown-anchor-top-center.dropdown-anchor-top-left .dropdown-anchor, .dropdown-menu.dropdown-anchor-top-right.dropdown-anchor-top-left .dropdown-anchor
+         {
+         left: 15px;
+         }
+         .dropdown-menu.dropdown-anchor-top-left.dropdown-anchor-top-center .dropdown-anchor, .dropdown-menu.dropdown-anchor-top-center.dropdown-anchor-top-center .dropdown-anchor, .dropdown-menu.dropdown-anchor-top-right.dropdown-anchor-top-center .dropdown-anchor
+         {
+         left: calc(50% - 7px);
+         }
+         .dropdown-menu.dropdown-anchor-top-left.dropdown-anchor-top-right .dropdown-anchor, .dropdown-menu.dropdown-anchor-top-center.dropdown-anchor-top-right .dropdown-anchor, .dropdown-menu.dropdown-anchor-top-right.dropdown-anchor-top-right .dropdown-anchor
+         {
+         left: calc(100% - 28px);
+         }
+      </style>
+      <style type="text/css">
+         button
+         {
+         border: 0;
+         border-radius: 5px;
+         background-color: #8067B7;
+         border-bottom: 3px solid #6A50A7;
+         color: #fff;
+         padding: 10px;
+         }
+         .dropdown-menu .dropdown-anchor
+         {
+         border: 7px solid #de4a3e;
+         }
+         .dropdown-menu .dropdown-anchor::after
+         {
+         border: 6px solid #de4a3e;
+         }
+         .new-arrow 
+         {
+         float: right;
+         margin-right: 10%;
+         }
+         .side-fix {
+         top: 47px !important;
+         left: 4px !important; 
+         display: block !important;
+         background: #de4a3e;
+         }
+         .dropdown-menu ul
+         {
+         min-width: 190px;
+         list-style: none;
+         background: #de4a3e;
+         overflow: auto;
+         padding:0;
+         margin: 0;
+         font-weight: bold;
+         }
+         .dropdown-menu ul li > a, .dropdown-menu ul li label
+         {
+         display: block;
+         color: #fff;
+         text-decoration: none;
+         line-height: 18px;
+         padding: 5px 15px;
+         white-space: nowrap;
+         transition: all 0.1s;
+         border-bottom: 1px solid #9f2a2a;
+         font-size: 13px;
+         }
+         .dropdown-menu ul li > a, .dropdown-menu ul li label
+         {
+         display: block;
+         text-decoration: none;
+         line-height: 18px;
+         padding: 10px 15px;
+         white-space: nowrap;
+         transition: all 0.1s;
+         color: #fff;
+         }
+         .dropdown-menu
+         {
+         position: absolute;
+         z-index: 9999999;
+         display: none;
+         opacity: 0;
+         top: 0;
+         left: 0;
+         -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+         transition: opacity 0.2s, transform 0.2s;
+         -webkit-transform: translateY(-20px) scale(0.93);
+         transform: translateY(-20px) scale(0.93);
+         border-radius: 6px;
+         }
+         .dropdown-menu ul li:hover{
+         background: #2323233b  !important;
+         border-bottom: 1px solid #9f2a2a !important;
+         }
+         .dropdown-menu ul li a:hover:active:focus {
+         background: #2323233b  !important;
+         }
+         .icon-f
+         {
+         float: right;
+         }
+      </style>
+   </head>
+   <body>
+      <form method="post" action="./HomePage.aspx" id="form1">
+         <div class="aspNetHidden">
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="Z62CjM5PV4T2ujDHdFIfq3nzftRiWKjqwlgKnOXFyky3cFgPAf0vpv2pSjAXz3FBEmEyLPkZmLKMpJBwrQU8CXgE9FI=" />
+         </div>
+         <div class="aspNetHidden">
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B08A8674" />
+            <input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+         </div>
+         <header class="header " >
+            <div class="top-bg2"> </div>
+            <div class="container bg">
+               <div class="row">
+                  <div class="logo col-sm-6"> <a href= "HomePage.aspx"> <img src="App_Themes/Layout/images/logo.png" class="img-responsive"/> </a> </div>
+                  <div class="col-sm-6 right-box">
+                     <div class="right-logo"> <img src="App_Themes/Layout/images/digital-india.png" class="img-responsive"/> </div>
+                     <div class="right-logo"> <img src="App_Themes/Layout/images/nationalhealth.png" class="img-responsive"/> </div>
+                     <div class="right-logo"><img src="App_Themes/Layout/images/family01.png" class="img-responsive"/>  </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-2 pink">
+                     <a href="HomePage.aspx">
+                        <div class="icon-col grow">
+                           <span> <i class="fa fa-home"></i>  Home </span>	 
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-md-2 default-color ">
+                     <a href= "about-rch.aspx">
+                        <div class="icon-col grow"> 
+                           <span><i class="fa fa-newspaper-o"></i>  About RCH </span>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-md-2 blue">
+                     <a href= "Login.aspx">
+                        <div class="icon-col grow">  
+                           <span><i class="fa fa-edit"></i> Data Entry </span> 
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-md-2 green "> 
+                     <a href="javascript:void(0)" data-dropdown="#dashboard">
+                        <div class="icon-col grow"><span><i class="fa fa-file-text" style="padding-right: 5px;"></i>Dashboard </span><span class="new-arrow"><i class="fa fa-sort-down"></i></span></div>
+                     </a>
+                     <div class="dropdown-menu dropdown-anchor-top-right dropdown-has-anchor side-fix" id="dashboard">
+                        <ul>
+                           <li><a href="https://rchrpt.nhm.gov.in/RCHRPT/Dashboard/PortalDashboard.aspx"><span class="" style="margin-left: 7%; margin-right: 5%;"><i class="fa fa-file-text" style="padding-right: 5px;"></i></span>RCH Dashboard </a></li>
+                           <li><a href="abha-dashboard.html"><span class="" style="margin-left: 7%; margin-right: 5%;"><i class="fa fa-file-text" style="padding-right: 5px;"></i></span>Abha  </a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-md-2 " style="background: #de4a3e; padding: 1% 0 1% 0; cursor: pointer;">
+                     <a href="javascript:void(0)" data-dropdown="#dark">
+                        <div class="icon-col grow"><span><i class="fa fa-file-text" style="padding-right: 5px;"></i>Reports </span><span class="new-arrow"><i class="fa fa-sort-down"></i></span></div>
+                     </a>
+                     <div class="dropdown-menu dropdown-anchor-top-right dropdown-has-anchor side-fix" id="dark">
+                        <ul>
+                           <li><a href="https://rchrpt.nhm.gov.in/RCHRPT/Login.aspx"><span class="" style="margin-left: 7%; margin-right: 5%;"><i class="fa fa-file-text" style="padding-right: 5px;"></i></span>Standard Report </a></li>
+                           <li><a href="https://rchrpt.nhm.gov.in/qb/"><span class="" style="margin-left: 7%; margin-right: 5%;"><i class="fa fa-file-text" style="padding-right: 5px;"></i></span>Query Builder  </a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-md-2 purple">
+                     <a href="https://rch.nhm.gov.in/CM/">
+                        <div class="icon-col grow">  
+                           <span><i class="fa fa-database"></i>  Common Master </span> 
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </header>
+         <section id="content" >
+            <div class="container bg body-mid">
+               <script src="JSCRIPTS/jquery-1.11.3.min.js"></script>
+               <script>
+                  $( document ).ready(function() {
+                  $("#close-btn").click(function () {          
+                      $(".popup-box").hide();
+                  });
+                  });
+                  // slider 
+                  
+                  window.onload = function() {
+                  
+                      var slider = document.querySelector('#slider');
+                      var move = document.querySelector('#move');
+                      var moveLi = Array.from(document.querySelectorAll('#slider #move li'));
+                      var forword = document.querySelector('#slider #forword');
+                      var back = document.querySelector('#slider #back');
+                      var counter = 1;
+                      var time = 5000;
+                      var line = document.querySelector('#slider #line');
+                      var dots = document.querySelector('#slider #dots');
+                      var dot;
+                  
+                      for (i = 0; i < moveLi.length; i++) {
+                          dot = document.createElement('li');
+                          dots.appendChild(dot);
+                          dot.value = i;
+                      }
+                  
+                      dot = dots.getElementsByTagName('li');
+                      line.style.animation = 'line ' + (time / 1000) + 's linear infinite';
+                      dot[0].classList.add('active');
+                  
+                      function moveUP() {
+                          if (counter == moveLi.length) {
+                              moveLi[0].style.marginLeft = '0%';
+                              counter = 1;
+                          } else if (counter >= 1) {
+                              moveLi[0].style.marginLeft = '-' + counter * 100 + '%';
+                              counter++;
+                          } 
+                          if (counter == 1) {
+                              dot[moveLi.length - 1].classList.remove('active');
+                              dot[0].classList.add('active');
+                  
+                          } else if (counter > 1) {
+                              dot[counter - 2].classList.remove('active');
+                              dot[counter - 1].classList.add('active');
+                          }
+                      }
+                  
+                      function moveDOWN() {
+                          if (counter == 1) {
+                              moveLi[0].style.marginLeft = '-' + (moveLi.length - 1) * 100 + '%';
+                              counter = moveLi.length;
+                              dot[0].classList.remove('active');
+                              dot[moveLi.length - 1].classList.add('active');
+                          } else if (counter <= moveLi.length) {
+                              counter = counter - 2;
+                              moveLi[0].style.marginLeft = '-' + counter * 100 + '%';   
+                              counter++;
+                              dot[counter].classList.remove('active');
+                              dot[counter - 1].classList.add('active');
+                          }  
+                      }
+                  
+                      for (i = 0; i < dot.length; i++) {
+                          dot[i].addEventListener('click', function(e) {
+                              dot[counter - 1].classList.remove('active');
+                              counter = e.target.value + 1;
+                              dot[e.target.value].classList.add('active');
+                              moveLi[0].style.marginLeft = '-' + (counter - 1) * 100 + '%';
+                          });
+                      }
+                  
+                      forword.onclick = moveUP;
+                      back.onclick = moveDOWN;
+                      var autoPlay = setInterval(moveUP, time);
+                      slider.onmouseover = function() {
+                          autoPlay = clearInterval(autoPlay);
+                          line.style.animation = '';
+                      }
+                  
+                      slider.onmouseout = function() {
+                          autoPlay = setInterval(moveUP, time);
+                          line.style.animation = 'line ' + (time / 1000) + 's linear infinite';
+                      }
+                  
+                  }
+               </script>
+               <style>
+                  .popup-box{
+                  width:100%;
+                  height:100%;
+                  position:fixed;
+                  background:rgba(0,0,0,0.7);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  top:0;
+                  bottom:0;
+                  left:0;
+                  right:0;
+                  z-index:9;
+                  }
+                  .content-box{   
+                  max-width: 1200px;        
+                  width:calc(100% - 90px);
+                  border-radius: 5px;
+                  border:solid 5px #555;
+                  min-height: 50px;
+                  background:#fff;
+                  position: relative;
+                  }
+                  .content-box img{
+                  width:100%;
+                  height: auto;
+                  }
+                  #close-btn {  
+                  position: absolute;
+                  right: -27px;
+                  top: -27px;
+                  width: 30px;
+                  height: 30px;           
+                  background: #ffffff;
+                  border-radius: 50%;
+                  padding: 5px 5px;
+                  opacity: 0.8;
+                  cursor: pointer;
+                  }
+                  #close-btn:hover {
+                  opacity: 1;
+                  }
+                  #close-btn:before, #close-btn:after {
+                  position: absolute;
+                  left: 14.5px;
+                  content: ' ';
+                  height: 18px;
+                  width: 2px;
+                  top: 6px;
+                  background-color: #333;
+                  }
+                  #close-btn:before {
+                  transform: rotate(45deg);
+                  }
+                  #close-btn:after {
+                  transform: rotate(-45deg);
+                  }      
+                  @media (max-width: 767.98px) { 
+                  #close-btn {
+                  position: absolute;
+                  right: -26px;
+                  top: -24px;
+                  width: 25px;
+                  height: 25px;
+                  background: #ffffff;
+                  border-radius: 50%;
+                  padding: 5px 5px;
+                  opacity: 0.8;
+                  cursor: pointer;
+                  }
+                  #close-btn::before, #close-btn::after {
+                  position: absolute;
+                  left: 11.5px;
+                  content: ' ';
+                  height: 15px;
+                  width: 2px;
+                  top: 5px;                
+                  }
+                  }  
+                  /*  popup css end */
+                  #slider {
+                  position: relative;
+                  width: 100%;
+                  overflow: hidden;
+                  }
+                  #slider #line {
+                  height: 5px;
+                  background: rgba(0,0,0,0.5);
+                  z-index: 1;
+                  position: absolute;
+                  bottom: 0;
+                  right: 0;
+                  }
+                  #slider #dots {
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  bottom: 16px;
+                  display: flex;
+                  justify-content: center;
+                  }
+                  #slider #dots li {
+                  transition: 0.3s;
+                  list-style-type: none;
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 100%;
+                  background: rgba(0,0,0,0.5);
+                  margin: 0 0.25em;
+                  cursor: pointer;
+                  }
+                  #slider #dots li:hover,
+                  #slider #dots li.active {
+                  background: #ed9620;
+                  }
+                  @keyframes line {
+                  0% {width: 0%;}
+                  100% {width: 100%;}
+                  }
+                  #slider #back,
+                  #slider #forword {
+                  width: 6%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  opacity: 0;
+                  transition: 0.3s;
+                  cursor: pointer;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  bottom: 0;
+                  color: white;
+                  font-weight: 700;
+                  font-size: 2rem;
+                  background: -moz-linear-gradient(left,  rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);
+                  background: -webkit-linear-gradient(left,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0) 100%);
+                  background: linear-gradient(to right,  rgba(0,0,0,0.75) 0%,rgba(0,0,0,0) 100%);
+                  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfffffff', endColorstr='#00ffffff',GradientType=1 );
+                  }
+                  #slider #forword {
+                  left: auto;
+                  right: 0;
+                  background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);
+                  background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.75) 100%);
+                  background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.75) 100%);
+                  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#bfffffff',GradientType=1 );
+                  }
+                  #slider:hover #back,
+                  #slider:hover #forword {
+                  opacity: 0.7;
+                  }
+                  ul#move {
+                  margin: 0;
+                  padding: 0;
+                  display: flex;
+                  width: 100%;
+                  background: gray;
+                  margin-right: 100%;
+                  }
+                  ul#move li {
+                  transition: 0.6s;
+                  min-width: 100%;
+                  color: white;
+                  list-style-type: none;
+                  margin: 0;
+                  padding: 0;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  }
+                  ul#move li img {
+                  width: 100%;
+                  }
+                  ul#move li:nth-child(1) {
+                  background: #657765;
+                  }
+                  ul#move li:nth-child(2) {
+                  background: #456174;
+                  }
+                  ul#move li:nth-child(3) {
+                  background: #984;
+                  }
+                  ul#move li:nth-child(4) {
+                  background: #445566;
+                  }
+                  ul#move li:nth-child(5) {
+                  background: #744674;
+                  }
+                  .img-left
+                  {
+                  float:left;
+                  margin:0 6px;
+                  }
+                  .text-c {
+                  text-align: center;
+                  margin: 0 auto !important;
+                  margin-top: 0px;
+                  margin-bottom: 0px;
+                  display: inline !important;
+                  float: left;
+                  width: 70%;
+                  margin-top: -8% !important;
+                  margin-bottom: 1% !important;
+                  }
+                  .p-lr {
+                  padding-left: 0;
+                  padding-right: 0;
+                  }
+               </style>
+               <div class="popup-box">
+                  <div class="content-box">
+                     <div id="close-btn"></div>
+                     <!-- slider -->
+                     <div id="slider">
+                        <ul id="move">
+                           <li> 
+                              <a href="https://rashtragaan.in/" target="_blank"> <img src="App_Themes/Layout/images/Azadi-Ka-Mahotsav-Banner.jpg" style="width:100%"/>
+                              </a>
+                           </li>
+                        </ul>
+                        <div id="back">
+                           &#10094;
+                        </div>
+                        <div id="forword">
+                           &#10095;
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="clearfix"></div>
+               <div class="row">
+                  <div class="col-md-9">
+                     <div class="h1">Reproductive and Child Health (RCH) Portal </div>
+                     <p  class="p"> RCH Portal is designed for early identification and tracking of the individual beneficiary throughout the reproductive lifecycle of women and promote, monitor and support the reproductive, maternal, new-born and child health (RMNCH) schemes/programme delivery and reporting.</p>
+                     <h4> Key aspects of RCH Portal: </h4>
+                     <ul class="list-about">
+                        <li><span class="glyphicon glyphicon-circle-arrow-right"></span>Playing a vital role in key decision making and monitoring the implementation of health schemes in the country. </li>
+                        <li><span class="glyphicon glyphicon-circle-arrow-right"></span>Helps health workers in planning for service delivery and identification of beneficiary due for Antenatal Check-up, Post Natal Check-up and Immunization Services.  </li>
+                        <li><span class="glyphicon glyphicon-circle-arrow-right"></span>Identification of high-risk pregnant women and tracking of health conditions and assistance during the delivery of pregnant women.  </li>
+                        <li><span class="glyphicon glyphicon-circle-arrow-right"></span>Helps Health Worker in generation of work plan for delivery of immunization services to children.  </li>
+                        <li><span class="glyphicon glyphicon-circle-arrow-right"></span>Improve healthcare service delivery in the country. <a class="alert-link"  href= "about-rch.aspx"   >Read More</a> </li>
+                     </ul>
+                  </div>
+                  <div class="col-md-3 side-img"  >  <img src="App_Themes/Layout/images/banner-img.jpg" class="img-responsive"  >  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-9 p-lr">
+                     <div class="img-left">  <a href="https://rch.nhm.gov.in/citizen/register.aspx" Target="_blank" >
+                        <img src="App_Themes/Layout/images/Self-reg01.jpg" title="Click this Link to Self Register on RCH Portal" class="img-responsive" />
+                     </div>
+                     </a>
+                     <div class="img-left">  <a href="http://rch.nhm.gov.in/rch/Anmol_Status.aspx" Target="_blank" >
+                        <img src="App_Themes/Layout/images/Anmol02.jpg"  class="img-responsive"/> </a>
+                     </div>
+                     <div class="img-left">  <a href="http://rchrpt.nhm.gov.in/OTP" Target="_blank" >
+                        <img src="App_Themes/Layout/images/know03.jpg" class="img-responsive"/> </a>
+                     </div>
+                     <div class="img-left">  <a href="https://itms.nic.in/raise-ticket/detail/b508ed1c-560a-4213-aadc-dc5dfbf01082" Target="_blank" >
+                        <img src="App_Themes/Layout/images/ticket04.jpg"class="img-responsive" /> </a>
+                     </div>
+                  </div>
+                  <div class="col-md-3">
+                     <div class="clearfix"></div>
+                     <div class="vertical-menu">
+                        <a href="http://nrhm-mcts.nic.in/KKMSG.aspx" target="_blank"><i class="glyphicon glyphicon-ok"></i> Kilkari Messages  </a>
+                        <a href="http://nrhm-mcts.nic.in/KilkariRing.aspx" target="_blank"><i class="glyphicon glyphicon-ok"></i>Kilkari Ringtone/Radio Jingle </a>
+                        <a href="http://nrhm-mcts.nic.in/MobileAcademy.aspx" target="_blank"> <i class="glyphicon glyphicon-ok"></i>Mobile Academy </a> 
+                        <a href="http://nrhm-mcts.nic.in/KAMA_Artwork.aspx" target="_blank"> <i class="glyphicon glyphicon-ok"></i>Kilkari & Mobile Academy Artwork </a>
+                     </div>
+                  </div>
+                  <div class="col-md-8 mx-auto text-c">  <img src="App_Themes/Layout/images/people.png" class="">  </div>
+               </div>
+               <div class="row">
+                  <!--<div class="clearfix"></div>-->
+                  <!--<div class="col-md-4"> 
+                     <a href="http://rchrpt.nhm.gov.in/OTP" Target="_blank" >
+                     <div class="about-health"> <img src="App_Themes/Layout/images/about-health.png" class="img-responsive" /> </div>  </a>
+                        <div class="col-md-12">
+                           <a href="https://rch.nhm.gov.in/citizen/register.aspx" Target="_blank" >
+                          <img src="App_Themes/Layout/images/self.jpg" title="Click this Link to Self Register on RCH Portal" class="img-responsive self-img">
+                               </a>
+                      </div>
+                       <div class="col-md-12">
+                           <a href="http://rch.nhm.gov.in/rch/Anmol_Status.aspx" Target="_blank" >
+                          <img src="App_Themes/Layout/images/Anmol-app1.png"  class="img-responsive">
+                               </a>
+                      </div>
+                      <div class="col-md-12">
+                          <a href="http://rchrpt.nhm.gov.in/OTP" Target="_blank" >
+                          <img src="App_Themes/Layout/images/know.jpg" class="img-responsive know-img  ">
+                              </a>
+                      </div>   	
+                                 	
+                     </div> -->  <!--<div class="clearfix"></div>-->
+               </div>
+            </div>
+         </section>
+         <div class="container bg">
+            <footer>
+               <div class="row">
+                  <div class="col-md-4">
+                     <div class="footer-text" >
+                        <span>  <a   href= "DisclaimerPublic.aspx">Disclaimer</a> || </span> 
+                        <span> <a   href=  "WebsitesPublic.aspx">Related Links</a> || </span> 
+                        <span> <a href= "LinkingPolicyPublic.aspx" >Linking Policy</a>  </span> 
+                        <p><span style="color:#ffb100">HELPDESK :</span>
+                           <span>helpdesk-mcts[at]lsmgr[dot]nic[dot]in</span> 
+                        </p>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class=" modal-footer">
+                        Site is designed and hosted by National Informatics Centre (NIC). 
+                        Information is provided and updated by MoHFW  
+                     </div>
+                  </div>
+                  <div class="col-md-4 f-space">
+                     <a href="http://india.gov.in/" target="_blank">
+                     <img id="imgLogo1" src="App_Themes/Layout/images/images11.jpg" /></a>
+                     <a href="http://www.nic.in/" target="_blank">
+                     <img id="imgLogo" src="App_Themes/Layout/images/iconic_logo_F.png" /></a>
+                  </div>
+               </div>
+            </footer>
+         </div>
+      </form>
+   </body>
+   <script src="JSCRIPTS/jquery/jquery.min.js"></script> 
+   <script src="Bootstrap5v/js/bootstrap.js"></script>
+   <script src="JSCRIPTS/jquery/jquery.sweet-dropdown.min.js"></script>
+</html>
